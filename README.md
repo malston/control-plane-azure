@@ -29,6 +29,7 @@ source .envrc
 - Update `./versions.yml` to use latest versions
 - Follow [these instructions](https://docs.pivotal.io/platform/ops-manager/2-8/azure/prepare-azure-terraform.html#install) to create and configure the Service Principal account that is needed to run the terraform templates. To save time, you can run `./scripts/create-service-account.sh`
 - Copy `./control-plane/vars/$ENVIRONMENT_NAME/terraform.tfvars.example` to `./control-plane/vars/$ENVIRONMENT_NAME/terraform.tfvars` and modify with your configuration choices and credentials.
+- Create a DNS zone in Azure Portal
 - Run `./scripts/terraform-control-plane-apply.sh` - this will create the
   infrastructure required in Azure for a control-plane.
 - Update `opsman.yml` and `director.yml` in the control-plane vars directory.
