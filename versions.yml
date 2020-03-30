@@ -1,0 +1,11 @@
+uaa_release_version: 74.16.0
+uaa_sha: 991f8aca30ed1bada8a7a1a3582d0dea1ef8017e
+
+credhub_release_version: 2.5.11
+credhub_sha: f1810c1e662a1c76f40911cffd1d159204c9a661
+
+backup_restore_sdk_release_version: 1.17.4
+backup_restore_sdk_sha: 39a881258bd5e76808e557400a3b0eeb69948c09
+
+opsman_version: 2.8.5
+minio_version: 2020-03-14T01-23-37Z

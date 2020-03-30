@@ -24,7 +24,7 @@ source .envrc
 
 ### Control Plane
 
-- Run `./scripts/init.sh` to install required tools
+- Run `./scripts/install-cli-tools.sh` to install required CLI tools
 - Update `./versions.yml` to use latest versions
 - Update `./control-plane/vars/$ENVIRONMENT_NAME/terraform.tfvars`
 - run `./scripts/terraform-control-plane-apply.sh` - this will create the
