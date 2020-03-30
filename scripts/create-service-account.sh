@@ -38,7 +38,7 @@ ASSIGNEE_ID=$(az ad sp create --id "$APP_ID" | jq -r .objectId)
 
 # eventual consistency... retry until it works
 until az role assignment create --assignee "$ASSIGNEE_ID" \
-  --role "Contributor" --scope /subscriptions/"$SUBSCRIPTION_ID" > /dev/null 2>&1;
+  --role "Owner" --scope /subscriptions/"$SUBSCRIPTION_ID" > /dev/null 2>&1;
 do
 	echo 'Retrying role assignment...'
 	sleep 1
@@ -48,8 +48,8 @@ echo "Verifying role assignment to ${ASSIGNEE_ID}..."
 az role assignment list --assignee "$ASSIGNEE_ID"
 
 echo "Logging in as ${APP_ID}..."
-az login --username "$APP_ID" --password "$PASSWORD" \
-  --service-principal --tenant "$TENANT_ID" > /dev/null 2>&1;
+az login --service-principal --username "$APP_ID" --password "$PASSWORD" \
+  --tenant "$TENANT_ID" > /dev/null 2>&1;
 
 echo "To register your subscription with Microsoft.Storage, run:"
 echo
@@ -73,4 +73,5 @@ echo "subscription id: ${SUBSCRIPTION_ID}"
 echo "tenant id: ${TENANT_ID}"
 echo "client id: ${APP_ID}"
 echo "client secret: ${PASSWORD}"
+echo "assignee: ${ASSIGNEE_ID}"
 echo
