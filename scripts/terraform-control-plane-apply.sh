@@ -16,7 +16,7 @@ terraform_dir=./control-plane/terraform
 
 pushd ${terraform_dir} > /dev/null
   terraform init
-  terraform plan -var-file=../vars/${ENVIRONMENT_NAME}/terraform.tfvars \
+  terraform plan -var-file="../vars/${ENVIRONMENT_NAME}/terraform.tfvars" \
     -out="../state/${ENVIRONMENT_NAME}/terraform.tfplan"
   terraform apply \
     -state="../state/${ENVIRONMENT_NAME}/terraform.tfstate" \

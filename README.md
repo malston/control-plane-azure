@@ -12,7 +12,6 @@ export AZURE_CLIENT_SECRET=<application client secret>
 export AZURE_REGION=<azure region>
 export AZURE_TENANT_ID=<azure tenant it>
 export AZURE_SUBSCRIPTION_ID=<azure subscription id>
-export AZURE_STORAGE_ACCOUNT_KEY=<azure storage account key>
 export ENVIRONMENT_NAME=controlplane
 EOF
 ```
