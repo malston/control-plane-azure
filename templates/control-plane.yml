@@ -1,0 +1,64 @@
+product-name: control-plane
+product-properties:
+  .properties.control_plane_database:
+    selected_option: internal
+    value: internal
+  .properties.credhub_endpoint:
+    value: ((credhub_dns_name)):8844
+  .properties.plane_endpoint:
+    value: ((plane_dns_name))
+  .properties.tls:
+    value:
+      cert_pem: ((control_plane_tls_cert))
+      private_key_pem: ((control_plane_tls_private_key))
+  .properties.ca_cert:
+    value: ((ca_cert))
+  .properties.uaa_endpoint:
+    value: ((uaa_dns_name)):8443
+network-properties:
+  network:
+    name: control-plane
+  other_availability_zones:
+  - name: zone-1
+  singleton_availability_zone:
+    name: zone-1
+resource-config:
+  credhub:
+    instances: automatic
+    instance_type:
+      id: automatic
+    internet_connected: false
+    elb_names:
+    - ((credhub_lb_name))
+    additional_vm_extensions:
+    - credhub-lb-cloud-properties
+  db:
+    instances: automatic
+    persistent_disk:
+      size_mb: automatic
+    instance_type:
+      id: automatic
+    internet_connected: false
+  uaa:
+    instances: automatic
+    instance_type:
+      id: automatic
+    internet_connected: false
+    elb_names:
+    - ((uaa_lb_name))
+    additional_vm_extensions:
+    - uaa-lb-cloud-properties
+  web:
+    instances: automatic
+    instance_type:
+      id: automatic
+    internet_connected: false
+    elb_names:
+    - ((plane_lb_name))
+    additional_vm_extensions:
+    - plane-lb-cloud-properties
+  worker:
+    instances: automatic
+    instance_type:
+      id: automatic
+    internet_connected: false
