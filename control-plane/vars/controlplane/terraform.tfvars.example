@@ -1,0 +1,27 @@
+# (required) Azure location to stand up environment in
+location = "WestUS2"
+
+# (required) Azure account subscription id
+subscription_id = "some-guid"
+
+# (required) Azure account tenant id
+tenant_id = "some-other-guid"
+
+# (required) Azure automation account client id
+client_id = "some-other-other-guid"
+
+# (required) Azure automation account client secret
+client_secret = "superdupersecret"
+
+# (required) Domain to add environment subdomain to
+dns_suffix = "example.com"
+
+# (optional) if left blank, will default to "pcf".
+dns_subdomain = "foo"
+
+# An arbitrary unique name for namespacing resources, defaults to controlplane
+# Beware! The envname is used in storage account names and can therefore only contain lowercase letters and numbers
+env_name = "controlplane"
+
+# (required) URL for an OpsMan image hosted on Azure
+ops_manager_image_uri = "https://opsmanagerwestus.blob.core.windows.net/images/ops-manager-2.8.5-build.234.vhd"
