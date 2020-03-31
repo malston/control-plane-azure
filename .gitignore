@@ -27,3 +27,5 @@ secrets*
 *.tfstate
 *.tfvars
 *.tfplan
+
+files/
