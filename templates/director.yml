@@ -6,11 +6,12 @@ properties-configuration:
     retry_bosh_deploys: true
     blobstore_type: local
   iaas_configuration:
+    availability_mode: availability_sets
     bosh_storage_account_name: ((bosh_root_storage_account))
     client_id: ((client_id))
     client_secret: ((client_secret))
     cloud_storage_type: storage_accounts
-    storage_account_type: Premium_LRS
+    storage_account_type: Standard_LRS
     cloud_storage_type: managed_disks
     default_security_group: ((default_security_group_name))
     environment: AzureCloud
