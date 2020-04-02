@@ -49,7 +49,7 @@ source .envrc
 ### Terraforming
 
 - Copy `./control-plane/vars/$ENVIRONMENT_NAME/terraform.tfvars.example` to `./control-plane/vars/$ENVIRONMENT_NAME/terraform.tfvars` and modify with your configuration choices and credentials.
-- Run `./scripts/terraform-control-plane-apply.sh` - this will create the
+- Run `./scripts/terraform-apply.sh` - this will create the
   infrastructure required in Azure for a control-plane.
 
 ### Configure Operations Manager and Deploy Director
