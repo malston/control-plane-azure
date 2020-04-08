@@ -180,17 +180,16 @@ function install_kapp {
 }
 
 function install_kbld {
-  version="${KBLD_VERSION:-0.14.0}"
+  version="${KBLD_VERSION:-v0.19.0}"
   os="${OS:-linux}"
   arch="${ARCH:-amd64}"
-
-  pivnet login --api-token "$PIVNET_TOKEN"
-  pivnet download-product-files --product-slug='kbld' --release-version="$version" --glob=kbld-${os}-${arch}*
-
-  chmod +x kbld*
-  sudo mv kbld-$os-* /usr/local/bin/kbld
-  type kbld
-  kbld version
+  file="kbld"
+  trap "{ rm -f "$file" ; exit 255; }" EXIT
+  wget -O $file https://github.com/k14s/${file}/releases/download/${version}/${file}-${os}-${arch}
+  chmod +x $file
+  sudo mv $file /usr/local/bin/$file
+  type $file
+  $file version
 }
 
 set -eou pipefail
